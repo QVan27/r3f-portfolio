@@ -1,6 +1,7 @@
 import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
 import StyledComponentsRegistry from '@/lib/registry'
+import LenisScroll from '@/templates/LenisScroll'
 
 export const metadata = {
   title: 'Next.js + Three.js',
@@ -9,18 +10,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' className='antialiased'>
-      {/*
+    <LenisScroll>
+      <html lang='en' className='antialiased'>
+        {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
-      <body>
-        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-        <StyledComponentsRegistry>
-          <Layout>{children}</Layout>
-        </StyledComponentsRegistry>
-      </body>
-    </html>
+        <head />
+        <body>
+          {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
+          <StyledComponentsRegistry>
+            <Layout>{children}</Layout>
+          </StyledComponentsRegistry>
+        </body>
+      </html>
+    </LenisScroll>
   )
 }

@@ -2,6 +2,7 @@ import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
 import StyledComponentsRegistry from '@/lib/registry'
 import LenisScroll from '@/templates/LenisScroll'
+import Header from '@/components/Header'
 
 export const metadata = {
   title: 'Next.js + Three.js',
@@ -18,10 +19,13 @@ export default function RootLayout({ children }) {
       */}
         <head />
         <body>
-          {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-          <StyledComponentsRegistry>
-            <Layout>{children}</Layout>
-          </StyledComponentsRegistry>
+          <Header />
+          <main>
+            {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
+            <StyledComponentsRegistry>
+              <Layout>{children}</Layout>
+            </StyledComponentsRegistry>
+          </main>
         </body>
       </html>
     </LenisScroll>
